@@ -1,0 +1,9 @@
+{
+  "id": "edsakabu",
+  "ssh_keys": [
+    "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC5eLRdeb+BxEG/TkfxgyEGWC4azNRFKhnS3neFBAwVl4JAn21BoZVlDuJSsIhWeTtvUjSHjaSGO6Dg3RImTWNryS2fqklMnExTMR2WJH/7sZzJkoTQVY8AWGMTtP1F7EiCu8ZK0uDGbT1Za+gVqA3o94JETgI+6eyiNl/fmrtpJXrUXgW/+OC0XnBveoma6VJG+QUZu6W/oUxmjQpApeqQZZHkhq4CYUYPrRMHJLe+ZrrQR/l3k8WAzElV6AyB1WCurmTL7w/RvkCJ+g7z8kavJhJ5jP1UNFk35GiuQm+aJQSMZxVK6rhpeseFW2ER7WgsPktsMx6lmdO44ReiC0HX edsakabu@Eds-MacBook-Pro"
+  ],
+  "groups": ["sysadmin"],
+  "uid": 2002,
+  "comment": "Ed Sakabu (Los Angeles)"
+}

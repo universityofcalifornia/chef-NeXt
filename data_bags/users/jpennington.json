@@ -1,0 +1,9 @@
+{
+  "id": "jpennington",
+  "ssh_keys": [
+    "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQD2X3r2iOeKWWBzmQJEAoeg1x5WHRhQccSBnyOE6rM4ScDPJc6+3DXEiCQgAr19uqPF4KtIAYRgBexro/oC1+42MhUB46EuBGDueCpucDOLfNRHoOVAjJ1qr+w6biNLlxDbvWfX4rO0/DzN7t7+nWhAlupH/hgUavBxrezm3dpG4SGB/+PYdS+G5XaKUFoodcjfkV8VMQE3BIjevmOhFQiavjpg42C3Gyy64ZQSPDDyyeqvPjsde8hAuqPgmy7FcQTF2U3L6RVFDbqvQ8rhSJr6L+rtMK56B3QN9Vcjjkiv1h86vxyf8vimrobka7vwnntvOxpqPdfg5H8sFJF6Fq5t penningt@HP008376"
+  ],
+  "groups": ["sysadmin"],
+  "uid": 2200,
+  "comment": "John Pennington (Hastings)"
+}

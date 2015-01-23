@@ -1,0 +1,9 @@
+{
+  "id": "ebollens",
+  "ssh_keys": [
+    "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDBuiaD3Rezegytx99BWMYyTjOZrrtGb4G4N2bMVCrqO4Zc5Nya5AYSWkqUJfHspIOXEAmlMoMV+/hIno0bl8sulNGcQn9z+xUKq4X29THrE1vE+r7qTH3nvieofWe93iJAdhRaimeRLlEJ+aGdk+r1aKLsndFxO2A2UaWFjajU0TBReI6x1/Nhqd+6s7WeQ8XIgB8/eO0nY/EV9MS1MWhoW1Iq9YaCjv/+86MgBcaRO+FxqHi5G1x1VuWRbXw8o0/QN05WSEx3SDglpYrB0aHg05yOtgC5Q1Jdym23GR3lRs4OarKtBsFjcBD+1eHglH74z0KkEFkoBTDSHOK6G9xl ebollens@Erics-MacBook-Pro.local"
+  ],
+  "groups": ["sysadmin"],
+  "uid": 2001,
+  "comment": "Eric Bollens (Los Angeles)"
+}

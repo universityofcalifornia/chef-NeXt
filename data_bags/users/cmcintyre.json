@@ -1,0 +1,9 @@
+{
+  "id": "cmcintyre",
+  "ssh_keys": [
+    "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDD33uf/rJC3sjAaOeMXYc8bjWD2mUGhy4/xMVv0B1OxTA8xJgnhjPPKUmQTC9kQGhdJ9jDlTPaTqxJ9s74kSkBptOjjRj9l5LknIaM4WyR4QmjNo12IO/MN3l1gNeFVaMOU0RJseBO/LGiktGOsUjb4cx2gRsZE9l3LHxodt00hUl4JWAALR/+X+RTKjbSeBPGcTjboUZPFMaghMubfkaWPBJy8GLoItHMfmWR9Xfe6pneVQr+OaBvl19s1NRpNqUVeNBxfXJzAgVkDB3dDW4pLpRoNbtPzrT7bPS3vXAipg9kcxhS6EgBaU1H/2y9qakkRQlpZmQYqc1rRVUHqLW/ mcintyre@amp-iops-lt"
+  ],
+  "groups": ["sysadmin"],
+  "uid": 2100,
+  "comment": "Charles McIntyre (Santa Cruz)"
+}

@@ -1,0 +1,17 @@
+site "https://supermarket.getchef.com/api/v1"
+
+cookbook 'build-essential'
+cookbook 'chef-client'
+cookbook 'chef-solo-search'
+cookbook 'git'
+cookbook 'iptables'
+cookbook 'java'
+cookbook 'monit-ng'
+cookbook 'nodejs'
+cookbook 'openssh'
+cookbook 'packages'
+cookbook 'rvm'
+cookbook 'selinux'
+cookbook 'sudo'
+cookbook 'users'
+cookbook 'yum-epel'
