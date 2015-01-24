@@ -64,15 +64,6 @@ knife data bag from file --all
 
 ### Raw
 
-With pem file:
-
-```
-knife bootstrap some.example.edu \
-    --identity-file .ssh/your-identity.pem \
-    --node-name some-example \
-    --run-list 'role[foundation]'
-```
-
 With password:
 
 ```
@@ -81,6 +72,17 @@ knife bootstrap some.example.edu \
     --ssh-password 'some-password' \
     --node-name some-example \
     --run-list 'role[foundation]'
+```
+
+With pem file into EC2:
+
+```
+knife bootstrap some.example.edu \
+    --ssh-user ec2-user
+    --identity-file ~/.ssh/next.pem \
+    --node-name some-example \
+    --run-list 'role[foundation]'
+    --sudo
 ```
 
 Once this is done, log into the [Opscode Management console](https://manage.opscode.com) to assign additional roles to the node.

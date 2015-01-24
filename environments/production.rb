@@ -1,11 +1,11 @@
 _ENV_ = {
-
-  alert_email_addresses: [ ]
-
+  alert_email_addresses: [
+    'ebollens@oit.ucla.edu'
+  ]
 }
 
-name          'local'
-description   'Local development environment'
+name          'production'
+description   'Production environment'
 
 default_attributes({
   'monit' => {

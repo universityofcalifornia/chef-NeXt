@@ -1,4 +1,4 @@
-name          "foundation-packages"
+name          "foundation-monitoring"
 description   "Install baseline monitoring"
 
 run_list([

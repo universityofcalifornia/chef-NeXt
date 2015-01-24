@@ -22,8 +22,8 @@ default_attributes({
     'curl'
   ],
   'rvm' => {
-      'rubies' => ['2.2.0'],
-      'default_ruby' => '2.2.0'
+    'rubies' => ['2.2.0'],
+    'default_ruby' => '2.2.0'
   },
   'yum' => {
     'epel' => {

@@ -17,6 +17,37 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
     box.vm.provision 'chef_solo' do |chef|
 
+      # Assign node variables that would otherwise be defined via node.set_unless for Chef server / hosted chef
+      chef.json = {
+        next: {
+          app: {
+            database: {
+              production: {
+                password: 'app'
+              }
+            },
+            environment: {
+              oauth2: {
+                provider: {
+                  shibboleth: {
+                    secret: 'txen',
+                    properties: {
+                      site: 'https://192.168.0.100:8443'
+                    }
+                  }
+                }
+              }
+            },
+            secret_key_base: 'insecure'
+          },
+          mysql: {
+            root: {
+              password: 'root'
+            }
+          }
+        }
+      }
+
       chef.cookbooks_path = ['cookbooks', 'vendor_cookbooks']
       chef.data_bags_path = 'data_bags'
       chef.environments_path = 'environments'
@@ -25,6 +56,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       chef.environment = 'local'
 
       chef.add_role 'foundation'
+      chef.add_recipe 'chef-solo-search' # don't use this with Chef server / hosted chef
+      chef.add_role 'next-database'
+      chef.add_role 'next-app'
 
     end
 

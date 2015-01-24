@@ -1,0 +1,1 @@
+default['next']['https_rewrite'] = {}
