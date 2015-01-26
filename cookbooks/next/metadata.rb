@@ -1,6 +1,8 @@
 name 'next'
 license 'BSD'
 version '1.0.0'
+maintainer 'Eric Bollens'
+maintainer_email 'eric@eb.io'
 
 recipe 'next::app', 'Installs, configures and runs the NeXt application'
 recipe 'next::https_rewrite', 'Sets a redirect to HTTPS based on port rules'

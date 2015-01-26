@@ -1,0 +1,4 @@
+<?php
+
+<% require 'json' -%>
+return json_decode('<%= (@vars ? @vars : {}).to_json.gsub(/'/, '\\\'') %>', true);

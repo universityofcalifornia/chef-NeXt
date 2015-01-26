@@ -14,10 +14,12 @@ default_attributes({
   'next' => {
     'app' => {
       'server_port' => 443,
-      'oauth2' => {
-        'provider' => {
-          'shibboleth' => {
-            'enabled' => true
+      'environment' => {
+        'oauth2' => {
+          'provider' => {
+            'shibboleth' => {
+              'enabled' => true
+            }
           }
         }
       }
@@ -34,4 +36,10 @@ default_attributes({
   'packages' => [
     'sqlite-devel'
   ]
+})
+
+override_attributes({
+  'apache' => {
+    'listen_ports' => [ 80 ]
+  }
 })

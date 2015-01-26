@@ -1,0 +1,28 @@
+<IfModule mod_rewrite.c>
+  <IfModule mod_negotiation.c>
+    Options -MultiViews
+  </IfModule>
+
+  RewriteEngine On
+
+  # Redirect Trailing Slashes...
+  RewriteRule ^(.*)/$ /$1 [L,R=301]
+
+  # Handle Front Controller...
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_URI} !/(Shibboleth\.sso) [NC]
+  RewriteRule ^ index.php [L]
+</IfModule>
+
+SetEnv SHIB_IMPLIED_AFFILIATION_SCOPE "ucla.edu"
+
+<% if @shibboleth_stub %>
+<IfModule !mod_shib>
+  SetEnv HTTP_SHIB_EPPN "<%= @shibboleth_stub['eppn'] ? @shibboleth_stub['eppn'] : 'example@localhost' %>"
+  SetEnv HTTP_SHIB_SN "<%= @shibboleth_stub['sn'] ? @shibboleth_stub['sn'] : 'User' %>"
+  SetEnv HTTP_SHIB_GIVEN_NAME "<%= @shibboleth_stub['given_name'] ? @shibboleth_stub['given_name'] : 'Example' %>"
+  SetEnv HTTP_SHIB_MAIL "<%= @shibboleth_stub['mail'] ? @shibboleth_stub['mail'] : 'example@mail.localhost' %>"
+  SetEnv HTTP_SHIB_EDU_PERSON_AFFILIATION "<%= @shibboleth_stub['edu_person_affiliation'] ? @shibboleth_stub['edu_person_affiliation'] : 'staff@localhost;employee@localhost' %>"
+</IfModule>
+<% end %>

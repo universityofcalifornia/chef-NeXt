@@ -6,7 +6,7 @@ node_name                user
 client_key               "#{ENV['HOME']}/.chef/#{user}.pem"
 validation_client_name   "#{org}-validator"
 validation_key           "#{ENV['HOME']}/.chef/#{org}-validator.pem"
-chef_server_url          "https://api.opscode.com/organizations/#{org}"
+chef_server_url          "https://api.chef.io/organizations/#{org}"
 syntax_check_cache_path  "#{ENV['HOME']}/.chef/syntax_check_cache"
 cookbook_path            ["#{current_dir}/cookbooks", "#{current_dir}/vendor_cookbooks"]
 

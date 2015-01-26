@@ -21,6 +21,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       chef.json = {
         next: {
           app: {
+            server_name: '192.168.0.100',
             database: {
               production: {
                 password: 'app'
@@ -32,13 +33,33 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
                   shibboleth: {
                     secret: 'txen',
                     properties: {
-                      site: 'https://192.168.0.100:8443'
+                      site: 'http://192.168.0.100:8443'
                     }
                   }
                 }
               }
             },
             secret_key_base: 'insecure'
+          },
+          auth: {
+            server_name: '192.168.0.100',
+            database: {
+              connections: {
+                mysql: {
+                  password: 'auth'
+                }
+              }
+            },
+            seeds: {
+              clients: {
+                'next' => {
+                  'secret' => 'txen',
+                  'endpoints' => [
+                      "https://192.168.0.100/auth/oauth2/shibboleth"
+                  ]
+                }
+              }
+            }
           },
           mysql: {
             root: {
@@ -59,6 +80,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       chef.add_recipe 'chef-solo-search' # don't use this with Chef server / hosted chef
       chef.add_role 'next-database'
       chef.add_role 'next-app'
+      chef.add_role 'next-auth'
 
     end
 
