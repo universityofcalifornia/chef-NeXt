@@ -2,6 +2,7 @@ name          "next-app"
 description   "NeXt app node"
 
 run_list([
+  'recipe[elasticsearch]',
   'recipe[apache2]',
   'recipe[apache2::mod_rewrite]',
   'recipe[next::mysql_client]',
@@ -11,6 +12,15 @@ run_list([
 ])
 
 default_attributes({
+  'elasticsearch' => {
+    'version' => '1.3.4',
+    'gateway' => {
+      'type' => 'local'
+    },
+    'http' => {
+      'port' => '9200'
+    }
+  },
   'next' => {
     'app' => {
       'server_port' => 443,

@@ -97,6 +97,14 @@ SITE
       yum (>= 3.0)
 
 GIT
+  remote: https://github.com/elasticsearch/cookbook-elasticsearch.git
+  ref: 0.3.11
+  sha: 256bfe63107b245cb9454dc24518b7898875dcc9
+  specs:
+    elasticsearch (0.3.11)
+      ark (>= 0.2.4)
+
+GIT
   remote: https://github.com/fnichol/chef-rvm.git
   ref: 7e1d452eeda083c1048ea94d513b58df78ad5350
   sha: 7e1d452eeda083c1048ea94d513b58df78ad5350
@@ -110,6 +118,7 @@ DEPENDENCIES
   chef-client (>= 0)
   chef-solo-search (>= 0)
   database (>= 0)
+  elasticsearch (>= 0)
   git (>= 0)
   iptables (>= 0)
   java (>= 0)
