@@ -1,5 +1,5 @@
 _ENV_ = {
-  hostname: 'next.eb.io',
+  hostname: 'ucnext.org',
   alert_email_addresses: [
     'ebollens@oit.ucla.edu'
   ]
@@ -16,7 +16,8 @@ default_attributes({
           provider: {
             shibboleth: {
               properties: {
-                site: "http://#{_ENV_[:hostname]}:8443"
+                site: "http://#{_ENV_[:hostname]}:8443",
+                authorize_url: '/oauth2/test-authorize'
               }
             }
           }
@@ -28,6 +29,7 @@ default_attributes({
       'server_name' => _ENV_[:hostname],
       'htaccess' => {
         'shibboleth-stub' => {
+          '_test' => true,
           'eppn' => 'example@localhost',
           'sn' => 'User',
           'given_name' => 'Example',

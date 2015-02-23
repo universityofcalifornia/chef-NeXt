@@ -19,6 +19,9 @@ SetEnv SHIB_IMPLIED_AFFILIATION_SCOPE "ucla.edu"
 
 <% if @shibboleth_stub %>
 <IfModule !mod_shib>
+  <% if @shibboleth_stub['_test'] %>
+  SetEnv X_ALLOW_TEST_AUTH "true"
+  <% end %>
   SetEnv HTTP_SHIB_EPPN "<%= @shibboleth_stub['eppn'] ? @shibboleth_stub['eppn'] : 'example@localhost' %>"
   SetEnv HTTP_SHIB_SN "<%= @shibboleth_stub['sn'] ? @shibboleth_stub['sn'] : 'User' %>"
   SetEnv HTTP_SHIB_GIVEN_NAME "<%= @shibboleth_stub['given_name'] ? @shibboleth_stub['given_name'] : 'Example' %>"

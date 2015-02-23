@@ -14,6 +14,7 @@ run_list([
 default_attributes({
   'next' => {
     'auth' => {
+      'revision' => '1.0.05-beta',
       'server_port' => 8443
     },
     'iptables' => {
