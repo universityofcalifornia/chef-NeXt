@@ -1,0 +1,18 @@
+<Attributes xmlns="urn:mace:shibboleth:2.0:attribute-map" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <% node['shibboleth-sp']['attribute-map'].each do |name, obj| -%>
+  <Attribute name="<%= name %>" id="<%= obj.is_a?(Hash) ? obj['id'] : obj  %>">
+    <% if obj.is_a?(Hash) -%>
+      <% if obj['decoder'] -%>
+      <AttributeDecoder xsi:type="<%= obj['decoder'].is_a?(Hash) ? obj['decoder']['type'] : obj['decoder'] %>"
+        <% if obj['decoder'].is_a?(Hash) and obj['decoder']['formatter'] -%>
+        formatter="<%= obj['decoder']['formatter'] -%>"
+        <% end -%>
+        <% if obj['decoder'].is_a?(Hash) and obj['decoder']['caseSensitive'] -%>
+        caseSensitive="<%= obj['decoder']['caseSensitive'] -%>"
+        <% end -%>
+      />
+      <% end -%>
+    <% end -%>
+  </Attribute>
+  <% end -%>
+</Attributes>
