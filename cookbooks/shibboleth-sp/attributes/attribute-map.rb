@@ -1,0 +1,1 @@
+default['shibboleth-sp']['attribute-map'] = {}

@@ -82,6 +82,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       chef.add_role 'next-app'
       chef.add_role 'next-auth'
 
+      # Only uncomment to test Shibboleth setup (SPs don't like localhost)
+      # chef.add_recipe 'shibboleth-sp::configure'
+      # chef.add_recipe 'shibboleth-sp::service'
+      # chef.add_recipe 'shibboleth-sp::apache2'
+
     end
 
   end
