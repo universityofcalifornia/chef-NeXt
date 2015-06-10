@@ -25,7 +25,7 @@ default_attributes({
   },
   'next' => {
     'app' => {
-      'revision' => '1.0.04-dev-54-gdb84464',
+      'revision' => '1.0.04-dev',
       'server_port' => 443,
       'environment' => {
         'oauth2' => {
