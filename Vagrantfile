@@ -6,13 +6,18 @@ VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
+  #config.vm.box = 'chef/centos-6.5'
+  #config.vm.box_url = 'https://vagrantcloud.com/chef/boxes/centos-6.5/versions/1/providers/virtualbox.box'
+
   config.vm.box = 'chef/centos-6.5'
-  config.vm.box_url = 'https://vagrantcloud.com/chef/boxes/centos-6.5/versions/1/providers/virtualbox.box'
+  config.vm.box_url = 'https://atlas.hashicorp.com/chef/boxes/centos-6.5'
+
+  
 
   config.vm.define 'next' do |box|
 
     box.vm.hostname = 'next'
-    box.vm.network 'private_network', ip: '192.168.0.100'
+    box.vm.network 'private_network', ip: '192.168.1.100'
     box.vm.provision 'shell', path: 'scripts/bootstrap.sh'
 
     box.vm.provision 'chef_solo' do |chef|
@@ -21,7 +26,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       chef.json = {
         next: {
           app: {
-            server_name: '192.168.0.100',
+            server_name: '192.168.1.100',
             database: {
               production: {
                 password: 'app'
@@ -33,7 +38,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
                   shibboleth: {
                     secret: 'txen',
                     properties: {
-                      site: 'http://192.168.0.100:8443'
+                      site: 'http://192.168.1.100:8443'
                     }
                   }
                 }
@@ -42,7 +47,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
             secret_key_base: 'insecure'
           },
           auth: {
-            server_name: '192.168.0.100',
+            server_name: '192.168.1.100',
             database: {
               connections: {
                 mysql: {
@@ -55,7 +60,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
                 'next' => {
                   'secret' => 'txen',
                   'endpoints' => [
-                      "https://192.168.0.100/auth/oauth2/shibboleth"
+                      "https://192.168.1.100/auth/oauth2/shibboleth"
                   ]
                 }
               }

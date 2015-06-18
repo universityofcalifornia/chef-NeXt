@@ -1,0 +1,38 @@
+<?php
+
+class DatabaseSeeder extends Seeder {
+
+  public function run()
+  {
+    Eloquent::unguard();
+
+    $scopeId = DB::table('oauth_scopes')->insertGetId(array(
+      'scope' => 'basic',
+      'name' => 'basic',
+      'description' => 'basic'
+    ));
+
+    <% if @seeds['clients'] -%>
+      <% @seeds['clients'].each do |id, client| %>
+    DB::table('oauth_clients')->insert(array(
+      'id' => '<%= id %>',
+      'name' => '<%= client['name'] %>',
+      'secret' => '<%= client['secret'] %>'
+    ));
+
+    DB::table('oauth_client_scopes')->insert(array(
+      'client_id' => '<%= id %>',
+      'scope_id' => $scopeId
+    ));
+
+        <% client['endpoints'].each do |redirect_uri| %>
+    DB::table('oauth_client_endpoints')->insert(array(
+      'client_id' => '<%= id %>',
+      'redirect_uri' => '<%= redirect_uri %>'
+    ));
+        <% end %>
+      <% end %>
+    <% end -%>
+  }
+
+}

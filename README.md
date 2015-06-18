@@ -38,7 +38,7 @@ vagrant destroy
 Using SSH keys for one of the users in `data_bags/users`, connect with:
 
 ```
-ssh USER@192.168.0.100
+ssh USER@192.168.1.100
 ```
 
 Consider updating `/etc/hosts` so you don't have to connect via local IP address.
