@@ -11,6 +11,8 @@ run_list([
   'recipe[next::app]'
 ])
 
+# last revision was 1.0.01-dev
+# updated to 1.0.04-dev-54-gdb84464 on 20150608
 default_attributes({
   'elasticsearch' => {
     'version' => '1.3.4',

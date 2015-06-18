@@ -1,8 +1,16 @@
 _ENV_ = {
+
   hostname: 'ucnext.org',
+
   alert_email_addresses: [
     'ebollens@oit.ucla.edu'
-  ]
+  ],
+
+#  auth_host: 'ucnext.org',
+#  auth_port: 8443,
+
+#  shibboleth_entityID: 'ucnext'
+
 }
 
 name          'preview'
@@ -49,6 +57,24 @@ default_attributes({
       }
     }
   },
+#  'shibboleth-sp' => {
+#    'configuration' => {
+#      'sp' => 'ucnext',
+#      'application_defaults' => {
+#        'entityID' => _ENV_[:shibboleth_entityID],
+#        'homeURL' => "https://#{_ENV_[:auth_host]}:#{_ENV_[:auth_port]}"
+#      },
+#      'request_map' => [
+#        {
+#          'hostname' => _ENV_[:auth_host],
+#          'port' => _ENV_[:auth_port],
+#          'paths' => [
+#            '/oauth2/authorize'
+#          ]
+#        }
+#      ]
+#    }
+#  },
   'monit' => {
     'config' => {
     'subscribers' => _ENV_[:alert_email_addresses].map(){ |email|
