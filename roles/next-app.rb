@@ -25,7 +25,7 @@ default_attributes({
   },
   'next' => {
     'app' => {
-      'revision' => '1.0.04-dev',
+      'revision' => '1.0.12-sgj_mod_gemfile_3',
       'server_port' => 443,
       'environment' => {
         'oauth2' => {
@@ -47,7 +47,8 @@ default_attributes({
     }
   },
   'packages' => [
-    'sqlite-devel'
+    'sqlite-devel',
+    'ImageMagick'
   ]
 })
 

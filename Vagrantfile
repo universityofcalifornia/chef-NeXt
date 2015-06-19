@@ -12,6 +12,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = 'chef/centos-6.5'
   config.vm.box_url = 'https://atlas.hashicorp.com/chef/boxes/centos-6.5'
 
+  config.vm.provider "virtualbox" do |v|
+      v.gui = true
+  end
   
 
   config.vm.define 'next' do |box|
