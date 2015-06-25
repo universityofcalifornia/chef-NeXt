@@ -11,8 +11,8 @@ run_list([
   'recipe[next::app]'
 ])
 
-# last revision was 1.0.01-dev
-# updated to 1.0.04-dev-54-gdb84464 on 20150608
+# last revision was 1.0.13-sgj_mod_gemfile_3
+# updated to 1.0.14 on 20150625
 default_attributes({
   'elasticsearch' => {
     'version' => '1.3.4',
@@ -25,7 +25,7 @@ default_attributes({
   },
   'next' => {
     'app' => {
-      'revision' => '1.0.12-sgj_mod_gemfile_3',
+      'revision' => '1.0.14',
       'server_port' => 443,
       'environment' => {
         'oauth2' => {
@@ -47,8 +47,7 @@ default_attributes({
     }
   },
   'packages' => [
-    'sqlite-devel',
-    'ImageMagick'
+    'sqlite-devel'
   ]
 })
 
