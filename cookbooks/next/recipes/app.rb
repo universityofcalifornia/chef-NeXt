@@ -5,8 +5,11 @@ db = app['database'][app['rails_env']]
 
 # Process commands (TODO: swap this to init.d scripts)
 signature = "thin server"
-start_cmd = "bundle install --path .bundle && RAILS_ENV=#{app['rails_env']} bundle exec thin start --ssl -p 443 -d"
+start_cmd = "PKG_CONFIG_PATH='/usr/lib64/pkgconfig' bundle install --path .bundle && RAILS_ENV=#{app['rails_env']} bundle exec thin start --ssl -p 443 -d"
 stop_cmd = "ps aux | grep '#{signature}' | grep -v 'grep' && kill $(ps aux | grep '#{signature}' | grep -v 'grep' | awk '{print $2}')"
+
+# NeXt needs imagemagick
+include_recipe 'imagemagick::devel'
 
 # Sync the repository with the configured revision
 git path do
