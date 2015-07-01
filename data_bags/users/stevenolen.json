@@ -1,0 +1,9 @@
+{
+  "id": "stevenolen",
+  "ssh_keys": [
+    "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDKCgeN3ySVYzAkRJcib0N0IgEhdFt50d5PIxMfMDSPoyEr0ig5MD3PNEhJVAXkYEWUk47+zSKhh42a/EpeHc2SPcYIvNsBYs/TuIBc6hSZmdoqINOoIxt8Thww5qk4Rh8otvl2QtBDHmPaCjz3CiSpqawTZbhSwnwXNCHqhYB+lcdKqLGr8lNRHUyLMxoev0jf4uHs7EjDuTvzlSvAFIhVFHaAxnyGucThNsVZL0cdl1+0DF760sj+I4fNYl5+Lv2HtOwr2FjPtckVIKxyj6SFC0w+PqxfW/7TUIJbyILAqt2is+OX9PTcgVrHWpggWiPJ8O98ICUzEflu7pWZz9tOuOp2jIBgfvA/aLis/tMmkhS4oQr1ZxJEVeYMv72XDqAx1lkSGoc8IqGiGwXzv/npHgemZQ0HaEVQg5qHP4RDAcEo8HBy9BzevidkIfB89AibMf4CGMKkYQ2iK7RwOF3Y8z561It6dhC1l2HOQkJq0goJ1XMe/5TkjdR4Q4uz15McaqwnGdDyeuw3WBPUstllviI9E4wRJnWVacLarrUo2lzXYeCZkIJ1oJ/uflY9skzVf0Wxahm648eKyeOmpOcYkfTMlpdCZFOZt50/+W93U8LWXJuFRgwudEQw/bkmDQB57Yr3CKzd9l0F4++nLFjVUgqW4qpfMxN4sZaUCxhOwQ== snolen@lecs"
+  ],
+  "groups": ["sysadmin"],
+  "uid": 2003,
+  "comment": "Steve Nolen"
+}
