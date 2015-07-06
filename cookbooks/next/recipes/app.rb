@@ -5,11 +5,16 @@ db = app['database'][app['rails_env']]
 
 # Process commands (TODO: swap this to init.d scripts)
 signature = "thin server"
-start_cmd = "PKG_CONFIG_PATH='/usr/lib64/pkgconfig' bundle install --path .bundle && RAILS_ENV=#{app['rails_env']} bundle exec thin start --ssl -p 443 -d"
+start_cmd = "bundle install --path .bundle && RAILS_ENV=#{app['rails_env']} bundle exec thin start --ssl -p 443 -d"
 stop_cmd = "ps aux | grep '#{signature}' | grep -v 'grep' && kill $(ps aux | grep '#{signature}' | grep -v 'grep' | awk '{print $2}')"
 
-# NeXt needs imagemagick
-include_recipe 'imagemagick::devel'
+# NeXt needs imagemagick, but rhel6 doesn't have imagemagick-devel
+ark 'ImageMagick' do
+  url  'http://www.imagemagick.org/download/ImageMagick.tar.gz'
+  version '6.9.1'
+  checksum 'db3ad86764fdf9cfd935c6b9ae335bb82294b498e3819a4925410c221140b624'
+  action :install_with_make
+end
 
 # Sync the repository with the configured revision
 git path do
@@ -64,6 +69,7 @@ end
 execute "#{path} bundle install" do
   cwd path
   command 'bundle install'
+  environment('PATH' => "#{ENV['PATH']}:/usr/local/bin", 'PKG_CONFIG_PATH' => '/usr/local/lib/pkgconfig')
   action :nothing
 end
 
@@ -88,6 +94,7 @@ end
 execute "#{path} restart server" do
   cwd path
   command "#{stop_cmd}; #{start_cmd}"
+  environment('PATH' => "#{ENV['PATH']}:/usr/local/bin", 'PKG_CONFIG_PATH' => '/usr/local/lib/pkgconfig')
   action :nothing
 end
 

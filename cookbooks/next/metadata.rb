@@ -1,6 +1,6 @@
 name 'next'
 license 'BSD'
-version '1.0.1'
+version '1.0.2'
 maintainer 'Eric Bollens'
 maintainer_email 'eric@eb.io'
 
@@ -16,4 +16,4 @@ depends 'database'
 depends 'iptables'
 depends 'mysql'
 depends 'openssl'
-depends 'imagemagick'
+depends 'ark'
