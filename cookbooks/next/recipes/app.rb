@@ -5,7 +5,7 @@ db = app['database'][app['rails_env']]
 
 # Process commands (TODO: swap this to init.d scripts)
 signature = "thin server"
-start_cmd = "bundle install --path .bundle && RAILS_ENV=#{app['rails_env']} bundle exec thin start --ssl -p 443 -d"
+start_cmd = "bundle install --without=development test && LD_LIBRARY_PATH=/usr/local/lib/ RAILS_ENV=#{app['rails_env']} bundle exec thin start --ssl --ssl-disable-verify -p 443 -d"
 stop_cmd = "ps aux | grep '#{signature}' | grep -v 'grep' && kill $(ps aux | grep '#{signature}' | grep -v 'grep' | awk '{print $2}')"
 
 # NeXt needs imagemagick, but rhel6 doesn't have imagemagick-devel
@@ -68,7 +68,7 @@ end
 
 execute "#{path} bundle install" do
   cwd path
-  command 'bundle install'
+  command 'LD_LIBRARY_PATH=/usr/local/lib/ bundle install --without=development test'
   environment('PATH' => "#{ENV['PATH']}:/usr/local/bin", 'PKG_CONFIG_PATH' => '/usr/local/lib/pkgconfig')
   action :nothing
 end
@@ -81,13 +81,13 @@ end
 
 execute "#{path} bundle exec blocks build" do
   cwd path
-  command 'bundle exec blocks build'
+  command 'LD_LIBRARY_PATH=/usr/local/lib/ bundle exec blocks build'
   action :nothing
 end
 
 execute "#{path} rake db:migrate" do
   cwd path
-  command "bundle exec rake db:migrate RAILS_ENV=#{app['rails_env']}"
+  command "LD_LIBRARY_PATH=/usr/local/lib/ bundle exec rake db:migrate RAILS_ENV=#{app['rails_env']}"
   action :nothing
 end
 
