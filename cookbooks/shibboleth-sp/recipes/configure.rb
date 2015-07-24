@@ -23,13 +23,15 @@ unless node['shibboleth-sp']['configuration']['sp'].nil?
     notifies :restart, 'service[apache2]', :delayed
   end
 
-  file '/etc/shibboleth/sp-key.pem' do
-    content sp['key']
-    owner 'shibd'
-    group 'root'
-    mode '0600'
-    notifies :restart, 'service[shibd]', :delayed
-    notifies :restart, 'service[apache2]', :delayed
-  end
+  # SN - private keys should never be in source!
+  #      will add knife vault support later on.
+  # file '/etc/shibboleth/sp-key.pem' do
+  #   content sp['key']
+  #   owner 'shibd'
+  #   group 'root'
+  #   mode '0600'
+  #   notifies :restart, 'service[shibd]', :delayed
+  #   notifies :restart, 'service[apache2]', :delayed
+  # end
 
 end
