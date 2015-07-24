@@ -24,14 +24,15 @@ default_attributes({
     }
   },
   'shibboleth-sp' => {
-    #'configuration' => {
+    'configuration' => {
+      'sp' => 'ucnext'
     #  'application_defaults' => {
     #    'REMOTE_USER' => 'SHIB_eduPersonPrincipalName',
     #    'session_initiator' => {
     #      'entityID' => 'urn:mace:incommon:ucla.edu' # TODO: replace with real initiator
     #    }
     #  }
-    #},
+    },
     'attribute-map' => {
       'urn:oid:1.3.6.1.4.1.5923.1.1.1.6' => {
         'id' => 'SHIB_EPPN',
