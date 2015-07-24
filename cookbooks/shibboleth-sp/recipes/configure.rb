@@ -1,8 +1,8 @@
 include_recipe "shibboleth-sp::package"
 include_recipe "shibboleth-sp::attribute-map"
 
-template '/etc/shibboleth/shibboleth2.xml' do
-  source 'shibboleth2.xml.erb'
+cookbook_file '/etc/shibboleth/shibboleth2.xml' do
+  source 'ucnext-shibboleth2.xml'
   owner 'root'
   group 'root'
   mode '0644'
