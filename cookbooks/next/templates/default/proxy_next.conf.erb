@@ -8,8 +8,8 @@
   ProxyPass /Shibboleth.sso !
   ProxyPass /shibboleth-sp !
   ProxyPass /ds !
-  ProxyPass / https://localhost:<%= next_port %>/
-  ProxyPassReverse / https://localhost:<%= next_port %>/
+  ProxyPass / https://localhost:<%= @params[:next_port] %>/
+  ProxyPassReverse / https://localhost:<%= @params[:next_port] %>/
   
   
   
