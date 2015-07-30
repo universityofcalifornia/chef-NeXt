@@ -8,6 +8,7 @@ run_list([
   'recipe[next::mysql_client]',
   'recipe[next::iptables]',
   'recipe[next::https_rewrite]',
+  'recipe[next::proxy]',
   'recipe[next::app]'
 ])
 
@@ -26,7 +27,7 @@ default_attributes({
   'next' => {
     'app' => {
       'revision' => '1.0.16',
-      'server_port' => 443,
+      'server_port' => 5000,
       'environment' => {
         'oauth2' => {
           'provider' => {
@@ -53,6 +54,6 @@ default_attributes({
 
 override_attributes({
   'apache' => {
-    'listen_ports' => [ 80 ]
+    'listen_ports' => [ 80, 443 ]
   }
 })

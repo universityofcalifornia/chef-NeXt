@@ -1,6 +1,6 @@
 name 'next'
 license 'BSD'
-version '1.0.2'
+version '1.0.3'
 maintainer 'Eric Bollens'
 maintainer_email 'eric@eb.io'
 

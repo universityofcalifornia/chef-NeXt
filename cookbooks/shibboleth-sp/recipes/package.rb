@@ -6,4 +6,9 @@ yum_package "shibboleth" do
   action :install
 end
 
+# add ds, needed for next.
+yum_package "shibboleth-embedded-ds" do
+  options "--enablerepo=security_shibboleth"
+end
+
 include_recipe "shibboleth-sp::service"
