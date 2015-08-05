@@ -75,7 +75,7 @@
       e.g. REMOTE_USER="eppn"
     -->
     
-    <ApplicationDefaults entityID="https://ucnext.org/shibboleth" REMOTE_USER="SHIB_EPPN">
+    <ApplicationDefaults entityID="https://ucnext.ucsd.edu/shibboleth" REMOTE_USER="SHIB_EPPN">
 
         <!--
         Controls session lifetimes, address checks, cookie handling, and the protocol handlers.
@@ -94,7 +94,7 @@
             (Set discoveryProtocol to "WAYF" for legacy Shibboleth WAYF support.)
             You can also override entityID on /Login query string, or in RequestMap/htaccess.
             -->
-            <SSO discoveryProtocol="SAMLDS" discoveryURL="https://ucnext.org/ds/">
+            <SSO discoveryProtocol="SAMLDS" discoveryURL="https://ucnext.org/ds/index.html">
               SAML2 SAML1
             </SSO>
 
@@ -135,6 +135,7 @@
           <Include>urn:mace:incommon:ucsf.edu</Include>
           <Include>urn:mace:incommon:lbl.gov</Include>
           <Include>urn:mace:incommon:ucop.edu</Include>
+          <Include>urn:mace:incommon:ucsd.edu</Include>
           <Include>https://shibboleth.uchastings.edu/idp/shibboleth</Include>
         </MetadataFilter>
             </MetadataProvider>
