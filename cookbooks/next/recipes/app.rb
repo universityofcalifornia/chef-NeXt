@@ -5,7 +5,7 @@ db = app['database'][app['rails_env']]
 
 # Process commands (TODO: swap this to init.d scripts)
 signature = "thin server"
-start_cmd = "bundle install --without=development test && LD_LIBRARY_PATH=/usr/local/lib/ RAILS_ENV=#{app['rails_env']} bundle exec thin start -p #{app['port']} -d"
+start_cmd = "bundle install --without=development test && LD_LIBRARY_PATH=/usr/local/lib/ RAILS_ENV=#{app['rails_env']} bundle exec thin start -p 5000 -d"
 stop_cmd = "ps aux | grep '#{signature}' | grep -v 'grep' && kill $(ps aux | grep '#{signature}' | grep -v 'grep' | awk '{print $2}')"
 
 # NeXt needs imagemagick, but rhel6 doesn't have imagemagick-devel
