@@ -1,5 +1,6 @@
 <VirtualHost *:<%= @params[:server_port] || node['apache']['listen_ports'].first %>>
-ServerName <%= @params[:server_name] %>
+ServerName https://<%= @params[:server_name] %>
+UseCanonicalName On
 <% if @params[:server_aliases] -%>
   ServerAlias <%= @params[:server_aliases].join " " %>
 <% end -%>
@@ -42,6 +43,37 @@ SetHandler server-status
 <% end -%>
 
 </Location>
+
+LoadModule mod_shib /usr/lib64/shibboleth/mod_shib_22.so
+<Location /Shibboleth.sso>
+  Satisfy Any
+  Allow from all
+</Location>
+
+<IfModule mod_alias.c>
+  <Location /shibboleth-sp>
+    Satisfy Any
+    Allow from all
+  </Location>
+  Alias /shibboleth-sp/main.css /usr/share/shibboleth/main.css
+  <Location /ds>
+    Allow from all
+    <IfModule mod_shib.c>
+      AuthType shibboleth
+      ShibRequestSetting requireSession false
+      require shibboleth
+    </IfModule>
+  </Location>
+  Alias /ds /var/www/ds
+</IfModule>
+<IfModule mod_shib>
+  <Location /oauth2/authorize>
+    AuthType shibboleth
+    ShibRequireSession On
+    ShibUseHeaders On
+    require valid-user
+  </Location>
+</IfModule>
 
 RewriteEngine On
 <%- if node['apache']['version'] == '2.4' -%>
