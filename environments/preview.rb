@@ -6,10 +6,9 @@ _ENV_ = {
     'ebollens@oit.ucla.edu'
   ],
 
-#  auth_host: 'ucnext.org',
-#  auth_port: 8443,
-
-#  shibboleth_entityID: 'ucnext'
+  auth_host: 'ucnext.org',
+  auth_port: 443,
+  shibboleth_entityID: 'ucnext'
 
 }
 
@@ -24,8 +23,8 @@ default_attributes({
           provider: {
             shibboleth: {
               properties: {
-                site: "http://#{_ENV_[:hostname]}:8443",
-                authorize_url: '/oauth2/test-authorize'
+                site: "https://#{_ENV_[:hostname]}",
+                authorize_url: '/oauth2/authorize'
               }
             }
           }
@@ -57,24 +56,24 @@ default_attributes({
       }
     }
   },
-#  'shibboleth-sp' => {
-#    'configuration' => {
-#      'sp' => 'ucnext',
-#      'application_defaults' => {
-#        'entityID' => _ENV_[:shibboleth_entityID],
-#        'homeURL' => "https://#{_ENV_[:auth_host]}:#{_ENV_[:auth_port]}"
-#      },
-#      'request_map' => [
-#        {
-#          'hostname' => _ENV_[:auth_host],
-#          'port' => _ENV_[:auth_port],
-#          'paths' => [
-#            '/oauth2/authorize'
-#          ]
-#        }
-#      ]
-#    }
-#  },
+  'shibboleth-sp' => {
+    'configuration' => {
+      'sp' => 'ucnext',
+      'application_defaults' => {
+        'entityID' => _ENV_[:shibboleth_entityID],
+        'homeURL' => "https://#{_ENV_[:auth_host]}:#{_ENV_[:auth_port]}"
+      },
+      'request_map' => [
+        {
+          'hostname' => _ENV_[:auth_host],
+          'port' => _ENV_[:auth_port],
+          'paths' => [
+            '/oauth2/authorize'
+          ]
+        }
+      ]
+    }
+  },
   'monit' => {
     'config' => {
     'subscribers' => _ENV_[:alert_email_addresses].map(){ |email|
