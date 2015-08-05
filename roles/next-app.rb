@@ -33,6 +33,10 @@ default_attributes({
               'enabled' => true
             }
           }
+        },
+        'auth' => {
+          'route' => '/auth/local/new',
+          'allow_local' => true
         }
       }
     },
