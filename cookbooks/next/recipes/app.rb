@@ -9,6 +9,8 @@ start_cmd = "bundle install --without=development test && LD_LIBRARY_PATH=/usr/l
 stop_cmd = "ps aux | grep '#{signature}' | grep -v 'grep' && kill $(ps aux | grep '#{signature}' | grep -v 'grep' | awk '{print $2}')"
 
 # NeXt needs imagemagick, but rhel6 doesn't have imagemagick-devel
+package 'libjpeg-devel'
+package 'libpng-devel'
 ark 'ImageMagick' do
   url  'http://www.imagemagick.org/download/ImageMagick.tar.gz'
   version '6.9.1'
