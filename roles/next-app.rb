@@ -24,7 +24,7 @@ default_attributes({
   },
   'next' => {
     'app' => {
-      'revision' => '1.0.21',
+      'revision' => '1.0.24',
       'server_port' => 5000,
       'environment' => {
         'oauth2' => {
