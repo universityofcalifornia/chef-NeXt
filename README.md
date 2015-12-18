@@ -1,3 +1,6 @@
+# LEGACY
+This set of cookbooks is no longer used.  Keeping it around as legacy until a few releases have passed.  Please see [universityofcalifornia/chef-ectg-ucnext](https://github.com/universityofcalifornia/chef-ectg-ucnext) for the up-to-date stuff!
+
 ## Development
 
 Download Vagrant:
